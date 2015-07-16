@@ -2,6 +2,8 @@
 class Card
   def initialize(card_data)
 
+    attr_reader :name, :cost_str, :cmc, :type_string, :supertypes, :types, :subtypes, :text
+
     @name = card_data["name"]
 
     #string rep of cost, of form "{2}{W}{U}{B}"
@@ -14,7 +16,7 @@ class Card
     @colors = card_data["colors"]
 
     #prob only for representation
-    @type_str = card_data["type"]
+    @type_string = card_data["type"]
 
     #array, possible (game relevant) vals = ["legendary", "basic", "snow", "world" ]
     @supertypes = card_data["supertypes"]
@@ -36,6 +38,5 @@ class Card
     if @types.include?("Planeswalker")
       @loyalty = card_data["loyalty"]
     end
-
   end
 end
